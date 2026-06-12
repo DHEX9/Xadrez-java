@@ -1,4 +1,4 @@
-package pieces;
+package model;
 
 public class Queen {
     

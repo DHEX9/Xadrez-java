@@ -1,4 +1,4 @@
-package pieces;
+package model;
 
 public class Pawn extends Piece{
     public Pawn(String color, int[] position, char symbol){

@@ -1,4 +1,4 @@
-package pieces;
+package model;
 
 public class Knight extends Piece{
     private int[][] offset = {{2,1}, {2,-1}, {-2,1}, {-2,-1}, {1,2}, {1,-2}, {-1,2}, {-1,-2}};
