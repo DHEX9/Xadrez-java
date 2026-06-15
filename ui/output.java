@@ -8,7 +8,8 @@ public class Output {
     public static final String MARGIN = "                                                                 ";
 
     public static void main(String[] args) {
-        
+
+        System.out.print("\n\n");
         for (int i = 0; i < 8; i++) { // Linhas
             for (int h = 0; h < 3; h++) { // 3 linhas de altura
 
@@ -36,5 +37,6 @@ public class Output {
                 System.out.println();
             }
         }
+        System.out.print("\n\n");
     }
 }
