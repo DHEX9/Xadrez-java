@@ -13,7 +13,7 @@ public class Game {
             player = Turn.playerTurn(player);
             player.displayMessage();
 
-            
+            board = Turn.Move(board, player);
             
         }
     }

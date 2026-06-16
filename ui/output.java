@@ -10,7 +10,7 @@ public class Output {
     public static final String MARGIN = "                                                                 ";
 
     public static void messagePlayerTurn(String message){
-        System.out.println(message);
+        System.out.print(MARGIN + message);
     }
 
     public static void output(Piece[][] board) {
