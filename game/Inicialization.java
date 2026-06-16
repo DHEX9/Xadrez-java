@@ -7,14 +7,25 @@ import model.piece.Pawn;
 import model.piece.Piece;
 import model.piece.Queen;
 import model.piece.Rook;
+import ui.Output;
 
 public class Inicialization {
     public static final String BLUE = "\u001B[34m";
     public static final String RESET = "\u001B[0m";
 
     public enum Player{
-        WHITE,
-        BLACK
+        WHITE("White's turn: "),
+        BLACK("Black's turn: ");
+
+        private String message;
+
+        Player(String message){
+            this.message = message;
+        }
+
+        public void displayMessage(){
+            Output.messagePlayerTurn(message);
+        }
     }
     
     public static Piece[][] inicialization(){

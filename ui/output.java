@@ -9,6 +9,10 @@ public class Output {
     public static final String GREEN_BG = "\u001B[42m";
     public static final String MARGIN = "                                                                 ";
 
+    public static void messagePlayerTurn(String message){
+        System.out.println(message);
+    }
+
     public static void output(Piece[][] board) {
 
         System.out.print("\n\n");
