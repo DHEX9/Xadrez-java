@@ -10,20 +10,31 @@ public class Knight extends Piece{
     }
 
     @Override
-    public boolean isValidMove(int[] position){
-        return true;
+    public boolean isValidMove(Piece[][] board, Player player, int[] position, int[] move){
+        
+        if(board[position[0] + move[0]][position[1] + move[1]] == null || board[position[0] + move[0]][position[1] + move[1]].getColor() != player){
+            return true;
+        }
+        
+        return false;
     }
 
     @Override
-    public MoveType[][] calculateValidMoves(Piece[][] board){
+    public MoveType[][] calculateValidMoves(Piece[][] board, Player player, int[] position){
         MoveType[][] moveType = new MoveType[8][8];
 
         for (int i = 0; i < offset.length; i++) {
-            if(board[offset[i][0]][offset[i][1]] == null){
+
+            if(board[position[0] + offset[i][0]][position[1] + offset[i][1]] == null){
                 moveType[offset[i][0]][offset[i][1]] = MoveType.MOVE;
             }
+
+            if(board[position[0] + offset[i][0]][position[1] + offset[i][1]].getColor() != player){
+                moveType[offset[i][0]][offset[i][1]] = MoveType.CAPTURE;
+            }
+
         }
-        return null;
+        return moveType;
     }
 
     @Override

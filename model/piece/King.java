@@ -10,12 +10,12 @@ public class King extends Piece{
     }
 
     @Override
-    public boolean isValidMove(int[] position){
+    public boolean isValidMove(Piece[][] board, Player player, int[] position, int[] move){
         return true;
     }
 
     @Override
-    public MoveType[][] calculateValidMoves(Piece[][] board){
+    public MoveType[][] calculateValidMoves(Piece[][] board, Player player, int[] position){
         return null;
     }
 

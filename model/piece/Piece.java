@@ -37,9 +37,9 @@ public abstract class Piece {
         this.position = position;
     }
 
-    public abstract boolean isValidMove(int[] position);
+    public abstract boolean isValidMove(Piece[][] board, Player player, int[] position, int[] move);
 
-    public abstract MoveType[][] calculateValidMoves(Piece[][] board);
+    public abstract MoveType[][] calculateValidMoves(Piece[][] board, Player player, int[] position);
 
     public abstract Piece[][] pieceMove(Piece[][] board, Piece piece);
 

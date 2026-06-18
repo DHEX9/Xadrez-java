@@ -14,8 +14,13 @@ public class Game {
             player = Turn.playerTurn(player);
             player.displayMessage();
 
-            board = Turn.Move(board, player);
+            int[] position = Turn.choosePiece(board, player);
             
+            board = Turn.move(board, position, player);
+
+            if(GameState.xequeMate()){
+                break;
+            }
             
         }
     }

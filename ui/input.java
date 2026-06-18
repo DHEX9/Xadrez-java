@@ -2,9 +2,6 @@ package ui;
 
 import java.util.Scanner;
 
-import game.Inicialization.Player;
-import model.piece.Piece;
-
 public class Input {
     public static boolean cancelPiece(){
         Scanner scanner = new Scanner(System.in);
@@ -47,7 +44,7 @@ public class Input {
         }
     }
 
-    public static Piece choosePiece(Piece[][] board, Player player){
+    public static int[] readPosition(){
         Scanner scanner = new Scanner(System.in);
     
         while(true){
@@ -55,35 +52,13 @@ public class Input {
             String input = scanner.next().toLowerCase();
 
             if(input.matches("[a-h][0-7]")){
-
-                if(board[input.charAt(0)][input.charAt(1) - '0'].getColor() == player){
-                    scanner.close();
-                    return board[input.charAt(0)][input.charAt(1) - '0'];
-                }
-
-                System.out.println("You don't have the part in this location.");
-                
-            }
-            
-            System.out.println("Invalid, Try again: ");
-            
-        }
-    }
-
-    public static int[] readPosition(Piece[][] board, Player player, Piece piece){
-        Scanner scanner = new Scanner(System.in);
-
-        while(true){
-            
-            String input = scanner.next().toLowerCase();
-
-            if(input.matches("[a-h][0-7]")){
-                scanner.close();
-                return new int[]{input.charAt(0), input.charAt(1) - '0'};
-            }
-
-            System.out.println("Invalid, Try again: ");
-        }
         
+                scanner.close();
+                return new int[]{columnToIndex(input.charAt(0)), input.charAt(1) - '0'};
+            }
+            
+            System.out.println("Invalid, Try again: ");
+            
+        }
     }
 }

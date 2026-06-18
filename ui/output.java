@@ -1,6 +1,7 @@
 package ui;
 
 import model.piece.Piece;
+import model.piece.Piece.MoveType;
 
 public class Output {
     public static final String RESET = "\u001B[0m";
@@ -20,6 +21,10 @@ public class Output {
 
     public static void messagePieceConfirmation(){
         System.out.println("Confirm part? Any key / N");
+    }
+
+    public static void showValidMoves(Piece[][] board, MoveType[][] moveType){
+        
     }
 
     public static void output(Piece[][] board) {
