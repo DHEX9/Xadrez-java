@@ -10,6 +10,7 @@ public class Output {
     public static final String GREEN_BG = "\u001B[42m";
     public static final String FOREST_GREEN_BG = "\u001B[48;5;28m";
     public static final String MARGIN = "                                                                 ";
+    public static final String MARGIN_FOR_CHARACTER = "                                                             "; //-4
 
     static void clearScreen() {
         System.out.print("\033[2J\033[H\n\n");
@@ -79,11 +80,10 @@ public class Output {
         System.out.print("\n\n");
     }
 
-    public static void printSquare(Piece piece, boolean blackSquare, int line, char characterRow) {
+    public static void printSquare(Piece piece, boolean blackSquare, int line) {
 
         String background = blackSquare ? GRAY_BG : "";
         String content = "        ";
-        String space = (line == 1) ? "  " : "";
         if(piece != null && line == 1){
             content = "   " + piece.getSymbol() + "    ";
         }
@@ -97,20 +97,28 @@ public class Output {
 
         System.out.print("\n\n");
 
-        char characterRow = 'A';
         for (int row = 0; row < 8; row++) { // Lines
             for (int line = 0; line < 3; line++) { // 3 lines of height
 
-                System.out.print(MARGIN); // Margin
+                if(line == 1) System.out.print(MARGIN_FOR_CHARACTER + (char) ('A' + row) + "   ");
+                else System.out.print(MARGIN); // Margin
 
                 for (int col = 0; col < 8; col++) { // columns
-                    printSquare(board[row][col], (row + col) % 2 == 0, line, characterRow);
+                    printSquare(board[row][col], (row + col) % 2 == 0, line);
                 }
 
                 System.out.println();
 
             }
         }
+
+        System.out.println();
+        System.out.print(MARGIN_FOR_CHARACTER);
+
+        for(int i = 0; i < 8; i++){
+            System.out.print("       " + i);
+        }
+
         System.out.print("\n\n");
     }
 }
