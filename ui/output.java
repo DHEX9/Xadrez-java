@@ -67,7 +67,8 @@ public class Output {
         for (int row = 0; row < 8; row++) { // Lines
             for (int line = 0; line < 3; line++) { // 3 lines of height
 
-                System.out.print(MARGIN); // Margin
+                if(line == 1) System.out.print(MARGIN_FOR_CHARACTER + (char) ('A' + row) + "   ");
+                else System.out.print(MARGIN); // Margin
 
                 for (int col = 0; col < 8; col++) { // columns
                     showSquareValidMoves(board[row][col], (row + col) % 2 == 0, line, moveType[row][col]);
@@ -77,6 +78,14 @@ public class Output {
 
             }
         }
+
+        System.out.println();
+        System.out.print(MARGIN_FOR_CHARACTER);
+
+        for(int i = 0; i < 8; i++){
+            System.out.print("       " + i);
+        }
+        
         System.out.print("\n\n");
     }
 
