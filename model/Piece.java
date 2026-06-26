@@ -1,5 +1,6 @@
 package model;
 
+import game.GameState;
 import game.Inicialization.Player;
 
 public abstract class Piece {
@@ -16,7 +17,8 @@ public abstract class Piece {
     public enum MoveType {
         MOVE,
         CAPTURE,
-        ENPASSANT
+        ENPASSANT,
+        DOUBLEADVANCE
     }
     
     //Getters
@@ -52,8 +54,23 @@ public abstract class Piece {
         return true;
     }
     
-    public abstract boolean isValidMove(int[] move);
+    public boolean isValidMove(int[] move){
+        if(getMoveType()[move[0]][move[1]] == MoveType.MOVE || getMoveType()[move[0]][move[1]] == MoveType.CAPTURE){
+            return true;
+        }
+        
+        return false;
+    }
 
     public abstract MoveType[][] calculateValidMoves(Piece[][] board, Player player, int[] position);
+
+    public Piece[][] movePiece(Piece[][] board, int[] position, int[] move){
+
+        board[move[0]][move[1]] = board[position[0]][position[1]];
+        board[position[0]][position[1]] = null;
+        GameState.enPassantPawn = null;
+        
+        return board;
+    }
 
 }

@@ -53,9 +53,10 @@ public class Turn {
             int[] move = Input.readPosition();
             
             if(board[position[0]][position[1]].isValidMove(move)){
-                board[move[0]][move[1]] = board[position[0]][position[1]];
-                board[position[0]][position[1]] = null;
+
+                board = board[position[0]][position[1]].movePiece(board, position, move);
                 return board;
+                
             }
 
             System.out.println("Invalid");

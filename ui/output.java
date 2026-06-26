@@ -40,13 +40,13 @@ public class Output {
         String background;
         String content = "        ";
 
-        if(moveType == MoveType.CAPTURE){
+        if(moveType == MoveType.CAPTURE || moveType == MoveType.ENPASSANT){
             background = RED_BG;
         }
-        else if(moveType == MoveType.MOVE && graySquare){
+        else if((moveType == MoveType.MOVE || moveType == MoveType.DOUBLEADVANCE) && graySquare){
             background = GREEN_BG;
         }
-        else if(moveType == MoveType.MOVE){
+        else if(moveType == MoveType.MOVE || moveType == MoveType.DOUBLEADVANCE){
             background = FOREST_GREEN_BG;
         }
         else background = graySquare ? GRAY_BG : "";

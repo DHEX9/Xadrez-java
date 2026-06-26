@@ -11,15 +11,6 @@ public class Rook extends Piece{
     }
 
     @Override
-    public boolean isValidMove(int[] move){
-        if(getMoveType()[move[0]][move[1]] == MoveType.MOVE || getMoveType()[move[0]][move[1]] == MoveType.CAPTURE){
-            return true;
-        }
-        
-        return false;
-    }
-
-    @Override
     public MoveType[][] calculateValidMoves(Piece[][] board, Player player, int[] position){
         
         MoveType[][] moveType = new MoveType[8][8];
