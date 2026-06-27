@@ -36,6 +36,11 @@ public class Output {
     public static void messageErrorChoosePiece(){
         System.out.println(MARGIN + "You don't have the part in this location.");
     }
+
+    public static void messageChoosePosition(){
+        System.out.print("\r" + MARGIN + "Choose a position: ");
+    }
+
     public static void showSquareValidMoves(Piece piece, boolean graySquare, int line, MoveType moveType){
         String background;
         String content = "        ";

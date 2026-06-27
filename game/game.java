@@ -8,7 +8,7 @@ public class Game {
 
     public static void Start(Piece[][] board, Player player){
         
-        while(true) {
+        while(true){
             
             Output.output(board);
             player = Turn.playerTurn(player);

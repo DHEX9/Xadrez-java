@@ -50,8 +50,10 @@ public class Turn {
 
         while(true){
 
+            Output.messageChoosePosition();
+
             int[] move = Input.readPosition();
-            
+
             if(board[position[0]][position[1]].isValidMove(move)){
 
                 board = board[position[0]][position[1]].movePiece(board, position, move);
